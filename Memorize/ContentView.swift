@@ -9,7 +9,20 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        return RoundedRectangle(cornerRadius: 25.0) // Argument Label
+        return ZStack(content: {// Empilha views umas sobre as outras em profundidade (z)
+            RoundedRectangle(cornerRadius: 25.0) // Argument Label
+                .stroke(lineWidth: 3)
+                .padding(.horizontal)
+                .foregroundColor(/*@START_MENU_TOKEN@*/.red/*@END_MENU_TOKEN@*/)
+            
+            Text("Hello, Naivepan")
+                .foregroundColor(.orange)
+                .padding()
+                
+        })
+        
+        
+
     }
 }
 
