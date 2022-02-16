@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        ZStack(alignment: .top, content: {
+        ZStack(alignment: .center) { // Sempre que o último argumento for func, pode ser passado sem sua respectiva label.
             
             RoundedRectangle(cornerRadius: 20)
                 .stroke(lineWidth: 3)
@@ -17,7 +17,7 @@ struct ContentView: View {
             Text("Hello, Naivepan")
             
                 
-        })
+        }
         .padding(.horizontal)
         .foregroundColor(.red)
 
