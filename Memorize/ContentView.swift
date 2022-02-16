@@ -2,15 +2,14 @@
 //  ContentView.swift
 //  Memorize
 //
-//  Created by Davyd Adriel on 15/02/22.
+//  Created by Davyd Adriel on 15/02/22. Naivepan
 //
 
 import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello, Panayve!")
-            .padding()
+        return RoundedRectangle(cornerRadius: 25.0) // Argument Label
     }
 }
 
