@@ -6,26 +6,60 @@
 //
 
 import SwiftUI
-
 struct ContentView: View {
+    
+    var emojis = ["🚂", "🚂", "🚀", "🚁", "🛺"]
+
     var body: some View {
-        ZStack(alignment: .center) { // Sempre que o último argumento for func, pode ser passado sem sua respectiva label.
-            
-            RoundedRectangle(cornerRadius: 20)
-                .stroke(lineWidth: 3)
-            
-            Text("Hello, Naivepan")
-            
-                
+        
+        HStack{
+            ForEach(emojis, id: \.self, content: { emoji in
+                CardView(content: emoji)
+            })
         }
         .padding(.horizontal)
         .foregroundColor(.red)
+        
+    }
+        
+}
 
+
+struct CardView: View {
+    var content: String
+    @State var isFaceUp: Bool = true
+    
+    var body: some View {
+        ZStack {
+            let shape = RoundedRectangle(cornerRadius: 20)
+            
+            if isFaceUp{
+                shape.fill().foregroundColor(.white)
+                
+                shape.stroke(lineWidth: 3)
+                
+                Text(content).font(.largeTitle)
+            } else {
+                shape.fill()
+            }
+            
+        }
+        .onTapGesture{
+            isFaceUp = !isFaceUp
+        }
     }
 }
+
 
 struct ContentView_Previews: PreviewProvider {
+    
+    
+    
     static var previews: some View {
         ContentView()
+            .preferredColorScheme(.dark)
+        ContentView()
+            .preferredColorScheme(.light)
     }
 }
+
